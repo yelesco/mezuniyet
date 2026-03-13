@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kernek Anadolu Lisesi Mezuniyet</title>
+    <style>
+        body { 
+            margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1523050853061-8504f48911a7?auto=format&fit=crop&w=800&q=80');
+            background-size: cover; background-attachment: fixed; background-position: center;
+            display: flex; justify-content: center; align-items: center; min-height: 100vh;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.98); padding: 30px; border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5); width: 85%; max-width: 380px; text-align: center;
+        }
+        h1 { color: #d32f2f; font-size: 20px; margin-bottom: 5px; text-transform: uppercase; }
+        h2 { color: #555; font-size: 15px; margin-bottom: 20px; border-bottom: 1px solid #ddd; padding-bottom: 10px; }
+        label { display: block; text-align: left; margin: 12px 0 5px; font-weight: bold; font-size: 14px; color: #333; }
+        input, select { 
+            width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 8px; 
+            font-size: 16px; box-sizing: border-box; background: #f9f9f9; outline: none;
+        }
+        button { 
+            width: 100%; background: #d32f2f; color: white; border: none; padding: 15px; 
+            border-radius: 8px; margin-top: 25px; cursor: pointer; font-size: 17px; font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>KERNEK ANADOLU LİSESİ</h1>
+    <h2>Mezuniyet Kayıt Formu</h2>
+    <form action="https://formspree.io/f/mwvrqbjy" method="POST">
+        <label>Ad Soyad</label>
+        <input type="text" name="Ad_Soyad" placeholder="Ad Soyad giriniz" required>
+        <label>Tarih Aralığı Seçiniz</label>
+        <select name="Tarih" required>
+            <option value="" disabled selected>Lütfen seçin...</option>
+            <option value="1-10 Mart">1 - 10 Mart</option>
+            <option value="11-21 Mart">11 - 21 Mart</option>
+            <option value="22-31 Mart">22 - 31 Mart</option>
+            <option value="1-10 Nisan">1 - 10 Nisan</option>
+            <option value="11-20 Nisan">11 - 20 Nisan</option>
+            <option value="21-30 Nisan">21 - 30 Nisan</option>
+            <option value="1-10 Mayıs">1 - 10 Mayıs</option>
+            <option value="11-20 Mayıs">11 - 20 Mayıs</option>
+            <option value="21-31 Mayıs">21 - 31 Mayıs</option>
+            <option value="1-10 Haziran">1 - 10 Haziran</option>
+            <option value="11-20 Haziran">11 - 20 Haziran</option>
+            <option value="21-30 Haziran">21 - 30 Haziran</option>
+        </select>
+        <label>Tercihiniz</label>
+        <select name="Tercih" required>
+            <option value="Yemekli">Yemekli</option>
+            <option value="Yemeksiz">Yemeksiz</option>
+        </select>
+        <button type="submit">KAYDI GÖNDER</button>
+    </form>
+</div>
+</body>
+</html>
