@@ -10,9 +10,9 @@
         h1 { color: #d32f2f; text-align: center; margin-bottom: 5px; font-size: 24px; }
         h2 { color: #555; text-align: center; margin-bottom: 25px; font-size: 18px; }
         label { font-weight: bold; display: block; margin-top: 15px; margin-bottom: 5px; color: #333; }
-        input[type="text"], input[type="date"], select { width: 100%; padding: 12px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 8px; box-sizing: border-box; font-size: 16px; }
+        input[type="text"], select { width: 100%; padding: 12px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 8px; box-sizing: border-box; font-size: 16px; }
         .radio-group { background: #f9f9f9; padding: 15px; border-radius: 8px; border: 1px dashed #bbb; margin-bottom: 15px; }
-        .radio-option { display: flex; align-items: center; margin-bottom: 10px; cursor: pointer; }
+        .radio-option { display: flex; align-items: center; margin-bottom: 10px; cursor: pointer; font-size: 15px; }
         .radio-option input { margin-right: 10px; width: 18px; height: 18px; }
         button { width: 100%; background-color: #d32f2f; color: white; padding: 15px; border: none; border-radius: 8px; font-size: 18px; font-weight: bold; cursor: pointer; transition: background 0.3s; margin-top: 20px; }
         button:hover { background-color: #b71c1c; }
@@ -30,17 +30,17 @@
         <label for="Ad_Soyad">Adınız ve Soyadınız:</label>
         <input type="text" name="Ad_Soyad" placeholder="Örn: Ahmet Yılmaz" required>
 
-        <label>Mezuniyet Hangi Gün Olsun?</label>
+        <label>Hangi Tarih Aralığı Uygundur?</label>
         <div class="radio-group">
-            <label class="radio-option">
-                <input type="radio" name="Tercih_Edilen_Gun" value="13 Haziran Cuma" required> 13 Haziran Cuma
-            </label>
-            <label class="radio-option">
-                <input type="radio" name="Tercih_Edilen_Gun" value="14 Haziran Cumartesi"> 14 Haziran Cumartesi
-            </label>
-            <label class="radio-option">
-                <input type="radio" name="Tercih_Edilen_Gun" value="15 Haziran Pazar"> 15 Haziran Pazar
-            </label>
+            <label class="radio-option"><input type="radio" name="Tarih_Araligi" value="1-10 Nisan" required> 1 - 10 Nisan</label>
+            <label class="radio-option"><input type="radio" name="Tarih_Araligi" value="11-20 Nisan"> 11 - 20 Nisan</label>
+            <label class="radio-option"><input type="radio" name="Tarih_Araligi" value="21-30 Nisan"> 21 - 30 Nisan</label>
+            <label class="radio-option"><input type="radio" name="Tarih_Araligi" value="1-10 Mayıs"> 1 - 10 Mayıs</label>
+            <label class="radio-option"><input type="radio" name="Tarih_Araligi" value="11-20 Mayıs"> 11 - 20 Mayıs</label>
+            <label class="radio-option"><input type="radio" name="Tarih_Araligi" value="21-31 Mayıs"> 21 - 31 Mayıs</label>
+            <label class="radio-option"><input type="radio" name="Tarih_Araligi" value="1-10 Haziran"> 1 - 10 Haziran</label>
+            <label class="radio-option"><input type="radio" name="Tarih_Araligi" value="11-20 Haziran"> 11 - 20 Haziran</label>
+            <label class="radio-option"><input type="radio" name="Tarih_Araligi" value="21-30 Haziran"> 21 - 30 Haziran</label>
         </div>
 
         <label for="Mekan_Onerisi">Mezuniyet nerede olsun istersiniz?</label>
@@ -53,7 +53,7 @@
     </form>
 
     <div class="footer">
-        © 2024 Kernek Anadolu Lisesi Mezuniyet Komitesi
+        © 2026 Kernek Anadolu Lisesi Mezuniyet Komitesi
     </div>
 </div>
 
