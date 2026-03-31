@@ -5,102 +5,102 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kernek Anadolu Lisesi Mezuniyet</title>
     <style>
-        body { font-family: 'Segoe UI', sans-serif; background-color: #f4f7f6; color: #333; margin: 0; padding: 20px; display: flex; justify-content: center; }
-        .container { background: white; padding: 25px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); width: 100%; max-width: 500px; border-top: 10px solid #d32f2f; }
+        :root { --primary: #d32f2f; --bg: #f8fafc; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg); margin: 0; padding: 20px; display: flex; justify-content: center; }
+        .container { background: white; padding: 30px; border-radius: 24px; box-shadow: 0 20px 25px rgba(0,0,0,0.1); width: 100%; max-width: 450px; border: 1px solid #e2e8f0; }
         
-        /* Giriş Ekranı (Overlay) */
-        #welcome-screen { text-align: center; padding: 20px; }
-        .warning-box { background: #fff5f5; border: 2px solid #d32f2f; padding: 20px; border-radius: 15px; margin-bottom: 25px; }
-        .warning-box h2 { color: #d32f2f; margin-top: 0; }
-        .warning-box p { font-size: 16px; line-height: 1.5; font-weight: 500; }
+        /* Giriş Uyarı Ekranı */
+        #intro-screen { text-align: center; }
+        .warning-icon { font-size: 50px; margin-bottom: 15px; display: block; }
+        .warning-title { color: var(--primary); font-size: 22px; font-weight: 800; margin-bottom: 15px; }
+        .warning-text { color: #475569; font-size: 15px; line-height: 1.6; margin-bottom: 25px; text-align: left; background: #fff1f2; padding: 20px; border-radius: 15px; border-left: 5px solid var(--primary); }
+
+        /* Form Ekranı (Başta Gizli) */
+        #form-screen { display: none; }
         
-        /* Ana Form (Başta Gizli) */
-        #main-content { display: none; }
+        h1 { font-size: 20px; text-align: center; color: var(--primary); margin-bottom: 20px; }
+        label { display: block; font-size: 14px; font-weight: 600; margin-bottom: 8px; color: #475569; }
+        input[type="text"] { width: 100%; padding: 14px; border: 2px solid #f1f5f9; border-radius: 12px; font-size: 16px; box-sizing: border-box; margin-bottom: 20px; }
         
-        h1 { color: #d32f2f; text-align: center; font-size: 24px; margin-bottom: 5px; }
-        p.subtitle { text-align: center; color: #666; margin-bottom: 20px; font-weight: 500; }
-        label.main-label { font-weight: bold; display: block; margin-top: 15px; margin-bottom: 8px; color: #444; }
-        input[type="text"] { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 10px; box-sizing: border-box; font-size: 16px; margin-bottom: 10px; }
+        .venue-card { position: relative; border: 2px solid #f1f5f9; border-radius: 18px; padding: 15px; margin-bottom: 12px; cursor: pointer; transition: 0.2s; }
+        input[type="radio"] { position: absolute; right: 15px; top: 50%; transform: translateY(-50%); width: 20px; height: 20px; accent-color: var(--primary); }
+        .venue-card:has(input[type="radio"]:checked) { border-color: var(--primary); background: #fff5f5; }
         
-        .option-card { background: #ffffff; border: 2px solid #eee; border-radius: 15px; padding: 15px; margin-bottom: 15px; transition: 0.3s; cursor: pointer; position: relative; display: block; }
-        .option-card:hover { border-color: #d32f2f; background: #fffafa; }
-        .option-card input { position: absolute; right: 15px; top: 50%; transform: translateY(-50%); width: 22px; height: 22px; }
-        
-        .location-name { font-size: 18px; font-weight: bold; color: #d32f2f; display: block; margin-bottom: 5px; }
-        .detail-row { font-size: 14px; color: #555; margin-bottom: 3px; display: block; }
-        .price-text { font-weight: bold; color: #222; }
-        
-        .btn { width: 100%; background-color: #d32f2f; color: white; padding: 16px; border: none; border-radius: 12px; font-size: 18px; font-weight: bold; cursor: pointer; transition: 0.3s; }
-        .btn:hover { background-color: #b71c1c; }
-        .footer { text-align: center; margin-top: 25px; font-size: 12px; color: #999; }
+        .v-title { display: block; font-size: 17px; font-weight: 700; color: #0f172a; }
+        .v-date { display: block; font-size: 13px; color: #64748b; margin: 4px 0; }
+        .v-price { display: inline-block; background: #f1f5f9; padding: 4px 10px; border-radius: 8px; font-size: 13px; font-weight: 700; }
+
+        .btn { width: 100%; background: var(--primary); color: white; padding: 16px; border: none; border-radius: 14px; font-size: 16px; font-weight: 700; cursor: pointer; transition: 0.3s; }
+        .btn:hover { transform: translateY(-2px); opacity: 0.9; }
+        .footer { text-align: center; margin-top: 25px; font-size: 11px; color: #94a3b8; }
     </style>
 </head>
 <body>
 
 <div class="container">
     
-    <div id="welcome-screen">
-        <div class="warning-box">
-            <h2>⚠️ DİKKAT!</h2>
-            <p>Bu formu düzgünce doldurmayanlar mezuniyet organizasyonuna <strong>kesinlikle katılamayacaktır.</strong></p>
-            <p>Son katılım tarihi: <br><strong>Bu Hafta Pazar Günü 23:59</strong></p>
+    <div id="intro-screen">
+        <span class="warning-icon">⚠️</span>
+        <div class="warning-title">ÖNEMLİ DUYURU</div>
+        <div class="warning-text">
+            <b>Son Katılım: Pazar Günü Akşamı</b><br><br>
+            Mezuniyet komitesinin net karar verebilmesi için bu formun <b>eksiksiz doldurulması zorunludur.</b> <br><br>
+            Formu doldurmayan kişiler, belirlenecek olan mezuniyet organizasyonuna <b>katılım sağlayamayacaktır.</b>
         </div>
-        <button class="btn" onclick="showForm()">Anladım, Devam Et</button>
+        <button class="btn" onclick="devamEt()">Okudum, Devam Et</button>
     </div>
 
-    <div id="main-content">
-        <h1>KERNEK ANADOLU LİSESİ</h1>
-        <p class="subtitle">Mezuniyet Tercih Formu</p>
-
-        <form action="https://formspree.io/f/xaqpdppj" method="POST">
+    <div id="form-screen">
+        <h1>MEZUNİYET TERCİH FORMU</h1>
+        <form action="https://formspree.io/f/xkopbqnz" method="POST">
             
-            <label class="main-label">Adınız ve Soyadınız:</label>
-            <input type="text" name="Ad_Soyad" placeholder="Ad Soyad yazınız..." required>
+            <label>Adınız ve Soyadınız</label>
+            <input type="text" name="Ad_Soyad" placeholder="Ad Soyad..." required>
 
-            <label class="main-label">E-posta veya Telefon No:</label>
-            <input type="text" name="Iletisim" placeholder="Size ulaşabilmemiz için..." required>
+            <label>E-posta veya Telefon No</label>
+            <input type="text" name="Iletisim" placeholder="Telefon numaranız..." required>
 
-            <label class="main-label">Mekan, Tarih ve Fiyat Seçiniz:</label>
+            <label>Mekan ve Tarih Seçimi</label>
             
-            <label class="option-card">
-                <span class="location-name">🏡 Beykonağı</span>
-                <span class="detail-row">📅 10-15 Mayıs / 1-10 Haziran</span>
-                <span class="detail-row price-text">💰 Fiyat: 600 TL</span>
+            <div class="venue-card">
                 <input type="radio" name="Secim" value="Beykonagi - 600TL" required>
-            </label>
+                <span class="v-title">🏡 Beykonağı</span>
+                <span class="v-date">📅 10-15 Mayıs / 1-10 Haziran</span>
+                <span class="v-price">600 TL</span>
+            </div>
 
-            <label class="option-card">
-                <span class="location-name">🌊 Havuzbaşı Tavacı Seydo</span>
-                <span class="detail-row">📅 10-15 Mayıs / 1-10 Haziran</span>
-                <span class="detail-row price-text">💰 Fiyat: 1000 TL</span>
+            <div class="venue-card">
                 <input type="radio" name="Secim" value="Tavaci Seydo - 1000TL">
-            </label>
+                <span class="v-title">🌊 Havuzbaşı Tavacı Seydo</span>
+                <span class="v-date">📅 10-15 Mayıs / 1-10 Haziran</span>
+                <span class="v-price">1000 TL</span>
+            </div>
 
-            <label class="option-card">
-                <span class="location-name">💒 Alaçatı Düğün Salonu</span>
-                <span class="detail-row">📅 2-30 Haziran</span>
-                <span class="detail-row price-text">💰 Fiyat: 900 TL</span>
+            <div class="venue-card">
                 <input type="radio" name="Secim" value="Alacati Salon - 900TL">
-            </label>
+                <span class="v-title">💒 Alaçatı Düğün Salonu</span>
+                <span class="v-date">📅 2-30 Haziran</span>
+                <span class="v-price">900 TL</span>
+            </div>
 
-            <label class="option-card">
-                <span class="location-name">🏨 Mövenpick</span>
-                <span class="detail-row">📅 10-15 Mayıs / 1-10 Haziran</span>
-                <span class="detail-row price-text">💰 Fiyat: 1500 TL</span>
+            <div class="venue-card">
                 <input type="radio" name="Secim" value="Movenpick - 1500TL">
-            </label>
+                <span class="v-title">🏨 Mövenpick</span>
+                <span class="v-date">📅 10-15 Mayıs / 1-10 Haziran</span>
+                <span class="v-price">1500 TL</span>
+            </div>
 
             <button type="submit" class="btn">Tercihimi Kaydet</button>
         </form>
     </div>
 
-    <div class="footer">© 2026 Kernek Anadolu Lisesi Mezuniyet Komitesi</div>
+    <div class="footer">© 2026 KERNEK MEZUNİYET KOMİTESİ</div>
 </div>
 
 <script>
-    function showForm() {
-        document.getElementById('welcome-screen').style.display = 'none';
-        document.getElementById('main-content').style.display = 'block';
+    function devamEt() {
+        document.getElementById('intro-screen').style.display = 'none';
+        document.getElementById('form-screen').style.display = 'block';
     }
 </script>
 
