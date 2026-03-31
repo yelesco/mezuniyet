@@ -3,59 +3,106 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mezuniyet Kayıt Formu</title>
+    <title>Kernek Anadolu Lisesi Mezuniyet</title>
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f4f9; display: flex; justify-content: center; align-items: center; padding: 20px; }
-        .container { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); width: 100%; max-width: 450px; border-top: 8px solid #d32f2f; }
-        h1 { color: #d32f2f; text-align: center; margin-bottom: 5px; font-size: 24px; }
-        h2 { color: #555; text-align: center; margin-bottom: 25px; font-size: 18px; }
-        label { font-weight: bold; display: block; margin-top: 15px; margin-bottom: 5px; color: #333; }
-        input[type="text"], select { width: 100%; padding: 12px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 8px; box-sizing: border-box; font-size: 16px; }
-        .radio-group { background: #f9f9f9; padding: 15px; border-radius: 8px; border: 1px dashed #bbb; margin-bottom: 15px; }
-        .radio-option { display: flex; align-items: center; margin-bottom: 10px; cursor: pointer; font-size: 15px; }
-        .radio-option input { margin-right: 10px; width: 18px; height: 18px; }
-        button { width: 100%; background-color: #d32f2f; color: white; padding: 15px; border: none; border-radius: 8px; font-size: 18px; font-weight: bold; cursor: pointer; transition: background 0.3s; margin-top: 20px; }
-        button:hover { background-color: #b71c1c; }
-        .footer { text-align: center; margin-top: 20px; font-size: 12px; color: #888; }
+        body { font-family: 'Segoe UI', sans-serif; background-color: #f4f7f6; color: #333; margin: 0; padding: 20px; display: flex; justify-content: center; }
+        .container { background: white; padding: 25px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); width: 100%; max-width: 500px; border-top: 10px solid #d32f2f; }
+        
+        /* Giriş Ekranı (Overlay) */
+        #welcome-screen { text-align: center; padding: 20px; }
+        .warning-box { background: #fff5f5; border: 2px solid #d32f2f; padding: 20px; border-radius: 15px; margin-bottom: 25px; }
+        .warning-box h2 { color: #d32f2f; margin-top: 0; }
+        .warning-box p { font-size: 16px; line-height: 1.5; font-weight: 500; }
+        
+        /* Ana Form (Başta Gizli) */
+        #main-content { display: none; }
+        
+        h1 { color: #d32f2f; text-align: center; font-size: 24px; margin-bottom: 5px; }
+        p.subtitle { text-align: center; color: #666; margin-bottom: 20px; font-weight: 500; }
+        label.main-label { font-weight: bold; display: block; margin-top: 15px; margin-bottom: 8px; color: #444; }
+        input[type="text"] { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 10px; box-sizing: border-box; font-size: 16px; margin-bottom: 10px; }
+        
+        .option-card { background: #ffffff; border: 2px solid #eee; border-radius: 15px; padding: 15px; margin-bottom: 15px; transition: 0.3s; cursor: pointer; position: relative; display: block; }
+        .option-card:hover { border-color: #d32f2f; background: #fffafa; }
+        .option-card input { position: absolute; right: 15px; top: 50%; transform: translateY(-50%); width: 22px; height: 22px; }
+        
+        .location-name { font-size: 18px; font-weight: bold; color: #d32f2f; display: block; margin-bottom: 5px; }
+        .detail-row { font-size: 14px; color: #555; margin-bottom: 3px; display: block; }
+        .price-text { font-weight: bold; color: #222; }
+        
+        .btn { width: 100%; background-color: #d32f2f; color: white; padding: 16px; border: none; border-radius: 12px; font-size: 18px; font-weight: bold; cursor: pointer; transition: 0.3s; }
+        .btn:hover { background-color: #b71c1c; }
+        .footer { text-align: center; margin-top: 25px; font-size: 12px; color: #999; }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <h1>KERNEK ANADOLU LİSESİ</h1>
-    <h2>Mezuniyet Kayıt Formu</h2>
-
-    <form action="https://formspree.io/f/xaqpdppj" method="POST">
-        
-        <label for="Ad_Soyad">Adınız ve Soyadınız:</label>
-        <input type="text" name="Ad_Soyad" placeholder="Örn: Ahmet Yılmaz" required>
-
-        <label>Hangi Tarih Aralığı Uygundur?</label>
-        <div class="radio-group">
-            <label class="radio-option"><input type="radio" name="Tarih_Araligi" value="1-10 Nisan" required> 1 - 10 Nisan</label>
-            <label class="radio-option"><input type="radio" name="Tarih_Araligi" value="11-20 Nisan"> 11 - 20 Nisan</label>
-            <label class="radio-option"><input type="radio" name="Tarih_Araligi" value="21-30 Nisan"> 21 - 30 Nisan</label>
-            <label class="radio-option"><input type="radio" name="Tarih_Araligi" value="1-10 Mayıs"> 1 - 10 Mayıs</label>
-            <label class="radio-option"><input type="radio" name="Tarih_Araligi" value="11-20 Mayıs"> 11 - 20 Mayıs</label>
-            <label class="radio-option"><input type="radio" name="Tarih_Araligi" value="21-31 Mayıs"> 21 - 31 Mayıs</label>
-            <label class="radio-option"><input type="radio" name="Tarih_Araligi" value="1-10 Haziran"> 1 - 10 Haziran</label>
-            <label class="radio-option"><input type="radio" name="Tarih_Araligi" value="11-20 Haziran"> 11 - 20 Haziran</label>
-            <label class="radio-option"><input type="radio" name="Tarih_Araligi" value="21-30 Haziran"> 21 - 30 Haziran</label>
+    
+    <div id="welcome-screen">
+        <div class="warning-box">
+            <h2>⚠️ DİKKAT!</h2>
+            <p>Bu formu düzgünce doldurmayanlar mezuniyet organizasyonuna <strong>kesinlikle katılamayacaktır.</strong></p>
+            <p>Son katılım tarihi: <br><strong>Bu Hafta Pazar Günü 23:59</strong></p>
         </div>
-
-        <label for="Mekan_Onerisi">Mezuniyet nerede olsun istersiniz?</label>
-        <input type="text" name="Mekan_Onerisi" placeholder="Örn: Altın Kayısı Otel, Okul Bahçesi vb." required>
-
-        <label for="Not">Eklemek İstediğiniz Bir Not Var mı?</label>
-        <input type="text" name="Mesaj" placeholder="Varsa buraya yazabilirsiniz...">
-
-        <button type="submit">Başvuruyu Tamamla</button>
-    </form>
-
-    <div class="footer">
-        © 2026 Kernek Anadolu Lisesi Mezuniyet Komitesi
+        <button class="btn" onclick="showForm()">Anladım, Devam Et</button>
     </div>
+
+    <div id="main-content">
+        <h1>KERNEK ANADOLU LİSESİ</h1>
+        <p class="subtitle">Mezuniyet Tercih Formu</p>
+
+        <form action="https://formspree.io/f/xaqpdppj" method="POST">
+            
+            <label class="main-label">Adınız ve Soyadınız:</label>
+            <input type="text" name="Ad_Soyad" placeholder="Ad Soyad yazınız..." required>
+
+            <label class="main-label">E-posta veya Telefon No:</label>
+            <input type="text" name="Iletisim" placeholder="Size ulaşabilmemiz için..." required>
+
+            <label class="main-label">Mekan, Tarih ve Fiyat Seçiniz:</label>
+            
+            <label class="option-card">
+                <span class="location-name">🏡 Beykonağı</span>
+                <span class="detail-row">📅 10-15 Mayıs / 1-10 Haziran</span>
+                <span class="detail-row price-text">💰 Fiyat: 600 TL</span>
+                <input type="radio" name="Secim" value="Beykonagi - 600TL" required>
+            </label>
+
+            <label class="option-card">
+                <span class="location-name">🌊 Havuzbaşı Tavacı Seydo</span>
+                <span class="detail-row">📅 10-15 Mayıs / 1-10 Haziran</span>
+                <span class="detail-row price-text">💰 Fiyat: 1000 TL</span>
+                <input type="radio" name="Secim" value="Tavaci Seydo - 1000TL">
+            </label>
+
+            <label class="option-card">
+                <span class="location-name">💒 Alaçatı Düğün Salonu</span>
+                <span class="detail-row">📅 2-30 Haziran</span>
+                <span class="detail-row price-text">💰 Fiyat: 900 TL</span>
+                <input type="radio" name="Secim" value="Alacati Salon - 900TL">
+            </label>
+
+            <label class="option-card">
+                <span class="location-name">🏨 Mövenpick</span>
+                <span class="detail-row">📅 10-15 Mayıs / 1-10 Haziran</span>
+                <span class="detail-row price-text">💰 Fiyat: 1500 TL</span>
+                <input type="radio" name="Secim" value="Movenpick - 1500TL">
+            </label>
+
+            <button type="submit" class="btn">Tercihimi Kaydet</button>
+        </form>
+    </div>
+
+    <div class="footer">© 2026 Kernek Anadolu Lisesi Mezuniyet Komitesi</div>
 </div>
+
+<script>
+    function showForm() {
+        document.getElementById('welcome-screen').style.display = 'none';
+        document.getElementById('main-content').style.display = 'block';
+    }
+</script>
 
 </body>
 </html>
